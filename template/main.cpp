@@ -23,6 +23,7 @@ typedef long long ll;
 typedef unsigned long long ull;
 
 typedef vector<int> vi;
+typedef vector<ll> vll;
 typedef vector<string> vs;
 
 /* library definitions ********************************************************/
