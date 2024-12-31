@@ -20,6 +20,8 @@ using namespace std;
 #define Yes        "Yes"
 #define No         "No"
 
+#define PI         ((double)3.14159265358979323846)
+
 /* type definitions ***********************************************************/
 typedef long long ll;
 typedef unsigned long long ull;
