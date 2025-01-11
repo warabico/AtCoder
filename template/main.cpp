@@ -5,6 +5,7 @@
 #include <iostream>
 #include <list>
 #include <map>
+#include <queue>
 #include <set>
 #include <sstream>
 #include <string>
