@@ -25,6 +25,9 @@ using vvi  = vector<vector<int>>;
 using vvll = vector<vector<ll>>;
 using vvs  = vector<vector<string>>;
 
+/* Macro Definitions **********************************************************/
+#define rep(i,n) for(ll i=0; i<n; i++)
+
 /* Const Definitions **********************************************************/
 const string YES = "YES";
 const string NO  = "NO";
@@ -57,6 +60,8 @@ class Solver {
         /* Libraries */
         template <typename T> void cin_v(vector<T>& v, int size);
         template <typename T> void cin_vv(vector<vector<T>>& v, int rows, int cols);
+        template <typename T> void chmax(T& a, T b);
+        template <typename T> void chmin(T& a, T b);
 };
 
 /* Methods ================================================================== */
@@ -107,6 +112,20 @@ void Solver::cin_vv(vector<vector<T>>& v, int rows, int cols)
             cin >> element;
             v[i].push_back(element);
         }
+    }
+}
+
+template <typename T>
+void Solver::chmax(T& a, T b) {
+    if( a < b ) {
+        a = b;
+    }
+}
+
+template <typename T>
+void Solver::chmin(T& a, T b) {
+    if( a > b ) {
+        a = b;
     }
 }
 
