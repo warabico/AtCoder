@@ -41,6 +41,8 @@ class Solver {
     private:
         /* String Stream ******************************************************/
         stringstream ss;
+        ll n,k;
+        vll a,b;
 
         /* User Dedfined Variables ========================================== */
         /* ================================================================== */
@@ -67,12 +69,30 @@ class Solver {
 /* Methods ================================================================== */
 void Solver::input()
 {
-    
+    cin >> n >> k;
+    a.assign(n,0);
+    b.assign(n,0);
+    rep(i,n) {
+        cin >> a[i] >> b[i];
+    }
 }
 
 void Solver::solve()
 {
-    
+    ll ans;
+    vll scores;
+
+    rep(i,n) {
+        scores.push_back(b[i]);
+        scores.push_back(a[i]-b[i]);
+    }
+    sort(scores.begin(), scores.end(), greater<ll>());
+
+    rep(i,k) {
+        ans += scores[i];
+    }
+
+    ss << ans << endl;
 }
 /* ========================================================================== */
 
@@ -92,7 +112,7 @@ void Solver::output()
 template <typename T>
 void Solver::cin_v(vector<T>& v, int size)
 {
-    v.assign(n, T{});
+    v.assign(size, T{});
     for( int i = 0; i < size; i++ )
     {
         cin >> v[i];
