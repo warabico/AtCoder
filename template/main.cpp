@@ -92,25 +92,22 @@ void Solver::output()
 template <typename T>
 void Solver::cin_v(vector<T>& v, int size)
 {
-    T element;
+    v.assign(n, T{});
     for( int i = 0; i < size; i++ )
     {
-        cin >> element;
-        v.push_back(element);
+        cin >> v[i];
     }
 }
 
 template <typename T>
 void Solver::cin_vv(vector<vector<T>>& v, int rows, int cols)
 {
-    T element;
+    v.assign(rows, vector<T>(cols, T{}));
     for( int i = 0; i < rows; i++ )
     {
-        v.push_back(vector<T>());
         for( int j = 0; j < cols; j++ )
         {
-            cin >> element;
-            v[i].push_back(element);
+            cin >> v[i][j];
         }
     }
 }
