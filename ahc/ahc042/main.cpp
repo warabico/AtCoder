@@ -119,7 +119,7 @@ void Solver::solve()
         rep(i,n) {
             int cnt = -1;
             rep(j,range) {
-                if( board[i][j] == -1 ) { cnt = j; oni++; next = true; }
+                if( board[i][j] == -1 ) { cnt = j; next = true; }
                 if( board[i][j] == 1 ) break;
             }
             rep(j,cnt+1) {
@@ -131,7 +131,7 @@ void Solver::solve()
         rep(i,n) {
             int cnt = -1;
             rep(j,range) {
-                if( board[j][i] == -1 ) { cnt = j; oni++; next = true; }
+                if( board[j][i] == -1 ) { cnt = j; next = true; }
                 if( board[j][i] == 1 ) break;
             }
             rep(j,cnt+1) {
@@ -143,7 +143,7 @@ void Solver::solve()
         rep(i,n) {
             int cnt = -1;
             rep(j,range) {
-                if( board[i][n-1-j] == -1 ) { cnt = j; oni++; next = true; }
+                if( board[i][n-1-j] == -1 ) { cnt = j; next = true; }
                 if( board[i][n-1-j] == 1 ) break;
             }
             rep(j,cnt+1) {
@@ -155,7 +155,7 @@ void Solver::solve()
         rep(i,n) {
             int cnt = 0;
             rep(j,range) {
-                if( board[n-1-j][i] == -1 ) { cnt = j; oni++; next = true; }
+                if( board[n-1-j][i] == -1 ) { cnt = j; next = true; }
                 if( board[n-1-j][i] == 1 ) break;
             }
             rep(j,cnt) {
@@ -167,7 +167,7 @@ void Solver::solve()
         rep(i,n) {
             int cnt = -1;
             rep(j,range) {
-                if( board[i][n-1-j] == -1 ) { cnt = j; oni++; next = true; }
+                if( board[i][n-1-j] == -1 ) { cnt = j; next = true; }
                 if( board[i][n-1-j] == 1 ) break;
             }
             rep(j,cnt+1) {
@@ -179,7 +179,7 @@ void Solver::solve()
         rep(i,n) {
             int cnt = 0;
             rep(j,range) {
-                if( board[n-1-j][i] == -1 ) { cnt = j; oni++; next = true; }
+                if( board[n-1-j][i] == -1 ) { cnt = j; next = true; }
                 if( board[n-1-j][i] == 1 ) break;
             }
             rep(j,cnt) {
@@ -191,7 +191,7 @@ void Solver::solve()
         rep(i,n) {
             int cnt = -1;
             rep(j,range) {
-                if( board[i][j] == -1 ) { cnt = j; oni++; next = true; }
+                if( board[i][j] == -1 ) { cnt = j; next = true; }
                 if( board[i][j] == 1 ) break;
             }
             rep(j,cnt+1) {
@@ -203,55 +203,7 @@ void Solver::solve()
         rep(i,n) {
             int cnt = -1;
             rep(j,range) {
-                if( board[j][i] == -1 ) { cnt = j; oni++; next = true; }
-                if( board[j][i] == 1 ) break;
-            }
-            rep(j,cnt+1) {
-                if( moveU(i) ) return;
-            }
-        }
-
-        // Left
-        rep(i,n) {
-            int cnt = -1;
-            rep(j,range) {
-                if( board[i][j] == -1 ) { cnt = j; oni++; next = true; }
-                if( board[i][j] == 1 ) break;
-            }
-            rep(j,cnt+1) {
-                if( moveL(i) ) return;
-            }
-        }
-
-        // Down
-        rep(i,n) {
-            int cnt = 0;
-            rep(j,range) {
-                if( board[n-1-j][i] == -1 ) { cnt = j; oni++; next = true; }
-                if( board[n-1-j][i] == 1 ) break;
-            }
-            rep(j,cnt) {
-                if( moveD(i) ) return;
-            }
-        }
-
-        // Right
-        rep(i,n) {
-            int cnt = -1;
-            rep(j,range) {
-                if( board[i][n-1-j] == -1 ) { cnt = j; oni++; next = true; }
-                if( board[i][n-1-j] == 1 ) break;
-            }
-            rep(j,cnt+1) {
-                if( moveR(i) ) return;
-            }
-        }
-
-        // Up
-        rep(i,n) {
-            int cnt = -1;
-            rep(j,range) {
-                if( board[j][i] == -1 ) { cnt = j; oni++; next = true; }
+                if( board[j][i] == -1 ) { cnt = j; next = true; }
                 if( board[j][i] == 1 ) break;
             }
             rep(j,cnt+1) {
@@ -261,19 +213,13 @@ void Solver::solve()
 
         int y = 0;
         int x = 0;
-        bool found = false;
         if( next == false && oni > 0 ) {
             rep(i,n) {
                 rep(j,n) {
                     if( board[i][j] == -1 ) {
                         y = i;
                         x = j;
-                        found = true;
-                        break;
                     }
-                }
-                if( found ) {
-                    break;
                 }
             }
             if( board[y][0] != 1 ) {
@@ -296,6 +242,7 @@ void Solver::solve()
 
 bool Solver::moveL(int row) {
     flush("L",row);
+    if( board[row][0] == -1 ) oni--;
     rep(k,n-1) {
         board[row][k] = board[row][k+1];
     }
@@ -305,6 +252,7 @@ bool Solver::moveL(int row) {
 
 bool Solver::moveR(int row) {
     flush("R",row);
+    if( board[row][n-1] == -1 ) oni--;
     rep(k,n-1) {
         board[row][n-k-1] = board[row][n-k-2];
     }
@@ -314,6 +262,7 @@ bool Solver::moveR(int row) {
 
 bool Solver::moveU(int col) {
     flush("U",col);
+    if( board[0][col] == -1 ) oni--;
     rep(k,n-1) {
         board[k][col] = board[k+1][col];
     }
@@ -323,6 +272,7 @@ bool Solver::moveU(int col) {
 
 bool Solver::moveD(int col) {
     flush("D",col);
+    if( board[n-1][col] == -1 ) oni--;
     rep(k,n-1) {
         board[n-k-1][col] = board[n-k-2][col];
     }
