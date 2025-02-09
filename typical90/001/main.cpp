@@ -89,6 +89,7 @@ void Solver::input()
 // #define DEBUG
 void Solver::solve()
 {
+#if 0
     ll left = 0;
     ll right = l;
     ll offset = l / 2;
@@ -104,6 +105,20 @@ void Solver::solve()
         }
         offset = max((ll)1, offset / 2);
     }
+#else
+    // めぐる式二分探索法
+    ll left = -1;
+    ll right = l + 1;
+    while( right - left > 1 ) {
+        ll mid = left + ( right - left ) / 2;
+        if( check(mid) ) {
+            left = mid;
+        } else {
+            right = mid;
+        }
+    }
+    ans = left;
+#endif
     ss << ans << endl;
 }
 
