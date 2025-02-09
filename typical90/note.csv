@@ -67,17 +67,17 @@ No., Difficulty, Theme
 066, 5, 
 067, 2, N-ary notation
 068, 5, 
-069, 3, Exponentiation by Squaring, Edge Case
+069, 3, Exponentiation by Squaring / Edge Case
 070, 4, 
 071, 7, 
 072, 4, 
 073, 5, 
 074, 6, 
-075, 3, Fctorization, Prime Judgement(Sieve of Eratosthenes)
+075, 3, Fctorization / Prime Judgement(Sieve of Eratosthenes)
 076, 3, Sliding Window Algorithm
 077, 7, 
 078, 2, Graphs / Adjacency list
-079, 3, 
+079, 3, Order of Operation / Parity
 080, 6, 
 081, 5, 
 082, 3, 
