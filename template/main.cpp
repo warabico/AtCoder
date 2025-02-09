@@ -18,6 +18,7 @@ using namespace std;
 
 /* Type Definitions ***********************************************************/
 using ll   = long long;
+using ull  = unsigned long long;
 using vll  = vector<ll>;
 using vs   = vector<string>;
 using vvll = vector<vector<ll>>;
@@ -25,6 +26,8 @@ using vvs  = vector<vector<string>>;
 
 /* Macro Definitions **********************************************************/
 #define rep(i,n) for(ll i=0; i<n; i++)
+#define range(i,a,b) for(ll i=a; i<=b; i++)
+#define step(i,a,b,c) for(ll i=a; i<=b; i+=c)
 
 /* Const Definitions **********************************************************/
 const string YES = "YES";
@@ -68,7 +71,7 @@ class Solver {
 /* Methods ================================================================== */
 void Solver::input()
 {
-
+    
 }
 
 #define DEBUG
